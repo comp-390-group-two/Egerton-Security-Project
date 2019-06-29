@@ -1,11 +1,12 @@
-package logins;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
-
-public class registerStudentsDAO {
-
+public class recordCaseDAO {
+	
 	
 	String url="jdbc:mysql://localhost:3306/COMP390";
 	String username="root";
@@ -13,10 +14,11 @@ public class registerStudentsDAO {
 	
 	Connection con;
 	Statement stmt;
-	public void ConnecttoDBS() {
+	public void ConnecttoDB() {
 		
 		
 		try {
+			
 			
 			con=DriverManager.getConnection(url,username,password);
 			stmt=con.createStatement();
@@ -29,14 +31,14 @@ public class registerStudentsDAO {
 	}
 	
 	
-	public void insertToDBS(String QueryInserti) {
+	public void insertToDB(String QueryInsert) {
 		
 		
 	try {
 		
-		ConnecttoDBS();
+		ConnecttoDB();
 		
-		stmt.executeUpdate(QueryInserti);
+		stmt.executeUpdate(QueryInsert);
 		System.out.println(" close to Inserted");
 		
 		
@@ -45,4 +47,8 @@ public class registerStudentsDAO {
 	}
 		
 	}
+	
+	
+	
+
 }
